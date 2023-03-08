@@ -27,7 +27,7 @@
 
         <h1 class="text-center">Guru Les Privat di {{ $data->nama_kecamatan }},
             <br>TK, SD, SMP, SMA, UTBK, SNBT, SIMAK UI & UMPTN</h1>
-            <div>
+            <div class="container">
                 {!! $data->deskripsi !!}
             </div>
     </div>

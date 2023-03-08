@@ -3,7 +3,10 @@
 <head>
     <style>
         .color-official {
-            
+            background-color: #0c2569;
+        }
+        nav {
+            margin-bottom: -100px;
         }
     </style>
     <meta charset="utf-8">

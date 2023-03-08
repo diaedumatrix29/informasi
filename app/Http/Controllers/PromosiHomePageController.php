@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\PromosiHomePage;
+use Illuminate\Support\Facades\Storage;
 
 class PromosiHomePageController extends Controller
 {
@@ -40,6 +41,10 @@ class PromosiHomePageController extends Controller
             $promosi_home_page = new PromosiHomePage();
             $promosi_home_page->judul_promosi = $request->judul_promosi;
             $promosi_home_page->isi_promosi = $request->isi_promosi;
+            $imageName = time() . '.' . $request->file->extension();
+            // $request->image->move(public_path('images'), $imageName);
+            $request->file->storeAs('public/images/icon_promosi_home_page', $imageName);
+            $promosi_home_page->foto_icon = $imageName;
             $promosi_home_page->save();
             return redirect('/dashboard/promosi-home-page')->with('success', 'Promosi belum berhasil diperbarui');
         } catch (\Exception $e) {
@@ -88,6 +93,14 @@ class PromosiHomePageController extends Controller
             $promosi_home_page = PromosiHomePage::find($request->id);
             $promosi_home_page->judul_promosi = $request->judul_promosi;
             $promosi_home_page->isi_promosi = $request->isi_promosi;
+            if ($request->hasFile('file')) {
+                Storage::delete('public/images/icon_promosi_home_page/' . $promosi_home_page->foto_icon);
+                $imageName = time() . '.' . $request->file->extension();
+                $request->file->storeAs('public/images/icon_promosi_home_page', $imageName);
+                $promosi_home_page->foto_icon = $imageName;
+            } else {
+              $imageName = $promosi_home_page->foto_icon;
+            }
             $promosi_home_page->save();
             return redirect('/dashboard/promosi-home-page')->with('success','Promosi berhasil diperbarui');          
           } catch (\Exception $e) {

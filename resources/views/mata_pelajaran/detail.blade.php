@@ -12,7 +12,7 @@
     <div class="container mt-5">
         <h1 class="text-center">Les Privat {{$data->mata_pelajaran}} untuk
         <br>SD, SMP, SMA, UTBK, SNBT, SIMAK UI & UMPTN</h1>
-        <div>
+        <div class="container">
           {!! $data->deskripsi !!}
         </div>
         @include('layouts.kelas_tingkatan_kota')

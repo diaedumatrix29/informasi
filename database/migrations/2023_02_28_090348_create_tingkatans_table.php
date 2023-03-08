@@ -16,6 +16,7 @@ class CreateTingkatansTable extends Migration
         Schema::create('tingkatan', function (Blueprint $table) {
             $table->id();
             $table->string('tingkatan')->unique();
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }

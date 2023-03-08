@@ -27,6 +27,10 @@
                 <label for="exampleInputEmail1">Upload Foto</label>
                 <input type="file" name="file" id="file" accept="image/*" class="form-control">
             </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Deskripsi</label>
+                <textarea name="deskripsi" class="form-control" required="">{{$data->deskripsi}}</textarea>
+            </div>
             <a href="{{ URL::to('/') }}/dashboard/kelas" class="btn btn-danger mt-3"
                 style="float: left;">Kembali</a>
             <button type="submit" class="btn btn-primary mt-3" style="float: right;">Update</button>

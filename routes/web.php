@@ -20,8 +20,11 @@ Route::get('/login', 'LoginController@index')->name('login');
 // Landing Page
 Route::get('/', 'LandingController@index')->name('landingPage');
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::auth();
 // Admin Dashboard
 Route::get('/admin/dashboard', 'AdminDashboardController@index')->name('admin.dashboard');
+
 
 // Kota Admin
 Route::get('/dashboard/kota', 'KotaController@index')->name('kota.dashboard');
@@ -42,7 +45,7 @@ Route::get('/mapel/input-data-mapel', 'MataPelajaranController@create')->name('m
 Route::post('/input-data-mapel-form', 'MataPelajaranController@store')->name('mapel.form');
 Route::get('/update-data-mapel-form', 'MataPelajaranController@update')->name('tingkatan.update');
 
-Route::get('/update-data-promosi-home-page-form', 'PromosiHomePageController@update')->name('promosi-home-page.update');
+Route::put('/update-data-promosi-home-page-form', 'PromosiHomePageController@update')->name('promosi-home-page.update');
 
 // FAQ update
 Route::get('/update-data-faq-form', 'FAQController@update')->name('faq.update');
@@ -70,8 +73,7 @@ Route::put('/update-data-asal-sekolah-siswa-form', 'AsalSekolahSiswaController@u
 Route::get('/mata-pelajaran/{name}', 'MataPelajaranController@show')->name('mapel.detail');
 
 // Tingkatan Admin
-Route::group(['middleware' => 'auth'], function () {
-    Route::auth();
+
 
     Route::get('/dashboard/kelas', 'TingkatanController@index')->name('tingkatan.dashboard');
     Route::delete('/kelas/delete/{id}', 'TingkatanController@destroy')->name('tingkatan.destroy');
@@ -79,7 +81,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/input-data-kelas-form', 'TingkatanController@store')->name('tingkatan.input');
     Route::get('/kelas/input-data-kelas', 'TingkatanController@create')->name('tingkatan.form');
     Route::put('/update-data-kelas-form', 'TingkatanController@update')->name('tingkatan.update');
-});
+
 
 
 
@@ -175,6 +177,7 @@ Route::get('promosi-home-page/edit/{name}', 'PromosiHomePageController@edit')->n
 
 
 Auth::routes();
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

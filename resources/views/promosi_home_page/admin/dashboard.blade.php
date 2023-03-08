@@ -29,6 +29,7 @@
             <tr>
                 <th scope="col">Judul Promosi</th>
                 <th scope="col">Isi Promosi</th>
+                <th scope="col">Icon</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Hapus</th>
             </tr>
@@ -39,6 +40,7 @@
                 <tr>
                     <td>{{ $promosi->judul_promosi }}</td>
                     <td>{{ $promosi->isi_promosi }}</td>
+                    <td><img src="{{ asset('storage/images/icon_promosi_home_page/' .$promosi->foto_icon) }}" class="" width="75"></td>
 
                     <td><a href="{{ URL::to('/') }}/promosi-home-page/edit/{{ $promosi->judul_promosi }}"><svg
                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

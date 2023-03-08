@@ -27,11 +27,10 @@
 
         <h1 class="text-center">Guru Les Privat di {{ $data->nama_kota }},
             <br>TK, SD, SMP, SMA, UTBK, SNBT, SIMAK UI & UMPTN</h1>
-            <div>
+            <div class="container">
                 {!! $data->deskripsi !!}
             </div>
             @include('layouts.kelas_tingkatan_kota')
-        <div>{!! $data->deskripsi !!}</div>
         @extends('layouts.footer')
 
     </div>

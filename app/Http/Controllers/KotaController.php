@@ -57,7 +57,7 @@ class KotaController extends Controller
     public function update(Request $request, Kota $kota)
     {
         try {
-            $request->validate([
+            $data = $request->validate([
                 'file' =>'required',
                 'file.*' => 'mimes:jpeg,png,jpg,gif,svg|max:2048'
             ]);

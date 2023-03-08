@@ -20,7 +20,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Deskripsi</label>
-                <textarea name="deskripsi" class="form-control" required=""></textarea>
+                <textarea name="deskripsi" class="form-control" required="">{{$data->deskripsi}}</textarea>
             </div>
             <a href="{{ URL::to('/') }}/dashboard/mapel" class="btn btn-danger mt-3"
                 style="float: left;">Kembali</a>

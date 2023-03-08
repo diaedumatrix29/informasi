@@ -15,10 +15,8 @@ class CreateOfficeTable extends Migration
     {
         Schema::create('office', function (Blueprint $table) {
             $table->id();
-            $table->text('field_1');
-            $table->text('field_2');
-            $table->text('field_3');
-            $table->string('judul');
+            $table->string('judul_office');
+            $table->text('isi_office');
             $table->timestamps();
         });
     }

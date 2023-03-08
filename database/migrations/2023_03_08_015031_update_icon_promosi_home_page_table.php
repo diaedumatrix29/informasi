@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateNullOfficeTable extends Migration
+class UpdateIconPromosiHomePageTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class UpdateNullOfficeTable extends Migration
      */
     public function up()
     {
-        Schema::table('office', function (Blueprint $table) {
-            //
+        Schema::table('promosi_home_page', function (Blueprint $table) {
+            $table->string('foto_icon');
         });
     }
 
@@ -25,7 +25,7 @@ class UpdateNullOfficeTable extends Migration
      */
     public function down()
     {
-        Schema::table('office', function (Blueprint $table) {
+        Schema::table('promosi_home_page', function (Blueprint $table) {
             //
         });
     }

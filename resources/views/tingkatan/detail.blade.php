@@ -17,13 +17,13 @@
 <br>
 <div class="main">
     <br>
-    <div class="container">
+    <div class="container mt-3">
         <img src="{{ asset('storage/images/tingkatan/' .$data->home_image) }}"
             class="image-landing" width="">
         <h1 class="text-center">Les Privat {{ $data->tingkatan }}
             <br>di Jakarta, Bogor, Depok, Tangerang, Tangsel, Bekasi
             <br>& Les Privat Online kota besar di Indonesia</h1>
-            <div>
+            <div class="container">
                 {!! $data->deskripsi !!}
             </div>
 

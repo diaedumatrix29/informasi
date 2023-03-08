@@ -21,7 +21,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Deskripsi</label>
-                <textarea name="deskripsi" class="form-control" required=""></textarea>
+                <textarea name="deskripsi" class="form-control" required="">{{$data->deskripsi}}</textarea>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Foto Kecamatan</label>
