@@ -9,7 +9,7 @@
 
 <br>
 <div class="main">
-    <div class="container mt-5">
+    <div class="container mt-2">
         <h1 class="text-center">Les Privat {{$data->mata_pelajaran}} untuk
         <br>SD, SMP, SMA, UTBK, SNBT, SIMAK UI & UMPTN</h1>
         <div class="container">

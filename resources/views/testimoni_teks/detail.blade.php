@@ -1,3 +1,9 @@
+<style>
+    .content {
+        box-shadow: 1px 1px 12px #ccc;
+    }
+</style>
+
 <div class="testimoni-teks">
     <h4>Kata #Mereka Tentang Belajar di Edumatrix Indonesia.</h4>
     @foreach($testimoni_teks as $testeks)

@@ -19,31 +19,37 @@
         background-color: #fff;
     }
 
+    .landing-page-awal {
+        margin-bottom: 30px;
+    }
     @media(min-width: 992px) {
         .image-home-page {
         position: absolute;
         right: 0;
         bottom: 14%;
-    }
+        }
 
-    .p-judul {
-        font-size: 25px;
-    }
+        .p-judul {
+            font-size: 25px;
+        }
 
-    .judul-home-page {
-        width: 65%;
-    }
+        .judul-home-page {
+            width: 65%;
+        }
 
-    .promosi-home-page {
-        background-color: #DBECF4;
-    }
+        .promosi-home-page {
+            background-color: #DBECF4;
+        }
 
-    .promosi-container {
-        margin-top: -35px;
-        z-index: 99;
-    }
-    }
+        .promosi-container {
+            margin-top: -35px;
+            z-index: 99;
+        }
 
+        .landing-page-awal {
+            margin-bottom: 150px;
+        }
+    }
     .mySlides {
         display: none;
     }
@@ -53,9 +59,9 @@
 </style>
 
 <br>
-<div class="main mt-5">
-    <div class="landing-page-awal color-official py-5  position-relative" style="margin-top: -20px;">
-        <div class="container">
+<div class="main">
+    <div class="color-official py-5 position-relative" style="margin-top: -20px;">
+        <div class="landing-page-awal container">
             <div class="d-lg-flex d-block pb-5">
                 <div class="judul-home-page">
                     <h1 class=" text-white text-left">Bimbel Masuk Kedokteran,
@@ -106,6 +112,7 @@
         <div style="margin-top: -35px; z-index: 99;" class="row position-relative p-3 rounded promosi-home-page">
             @foreach ($promosi_home_page as $promosi)
                 <div class="col-lg-4 col-12">
+                    <img width="50" class="d-block m-auto mb-2" src="{{ asset('storage/images/icon_promosi_home_page/' .$promosi->foto_icon) }}" />
                     <h5 class="col text-center mx-5">{{$promosi->judul_promosi}}</h5>
                     <p class="text-center">{{$promosi->isi_promosi}}</p>
                 </div>

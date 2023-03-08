@@ -2,15 +2,24 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    {{-- Goggle Font --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <style>
         .color-official {
             background-color: #0c2569;
         }
-
         nav {
-            margin-bottom: -100px;
+            margin-bottom: -80px;
         }
-
+        p, span, a, li {
+            font-family: roboto;
+        }
+        h1, h2, h3, h4, h5 {
+            font-family: montserrat;
+        }
     </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

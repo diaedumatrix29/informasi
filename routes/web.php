@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Auth Controller
-Route::get('/register', 'RegisterController@index')->name('register');
 Route::get('/login', 'LoginController@index')->name('login');
 
 Route::post('logout', 'LoginController@logout')->name('admin.logout')->middleware('auth');
@@ -83,10 +82,6 @@ Route::get('/mata-pelajaran/{name}', 'MataPelajaranController@show')->name('mape
     Route::post('/input-data-kelas-form', 'TingkatanController@store')->name('tingkatan.input');
     Route::get('/kelas/input-data-kelas', 'TingkatanController@create')->name('tingkatan.form');
     Route::put('/update-data-kelas-form', 'TingkatanController@update')->name('tingkatan.update');
-
-
-
-
 
 // Tingkatan User
 Route::get('/kelas/{name}', 'TingkatanController@show')->name('tingkatan.detail');
@@ -177,6 +172,7 @@ Route::post('/input-data-promosi-home-page-form', 'PromosiHomePageController@sto
 Route::delete('promosi-home-page/delete/{id}', 'PromosiHomePageController@destroy')->name('promosi-home-page.destroy');
 Route::get('promosi-home-page/edit/{name}', 'PromosiHomePageController@edit')->name('promosi-home-page.edit');
 
+Route::get('/register', 'RegisterController@index')->name('register');
 
 Auth::routes();
 });

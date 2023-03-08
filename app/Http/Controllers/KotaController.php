@@ -38,12 +38,17 @@ class KotaController extends Controller
     }
     public function destroy($id)
     {
-        $kota = Kota::find($id);
-        foreach($foto_kota as $foto) {
-            Storage::delete('storage/' . $kota->foto_kota);
+        try {
+            $kota = Kota::find($id);
+            foreach($kota as $foto) {
+                Storage::delete('storage/' . $kota->foto_kota);
+            }
+            $kota->delete();
+            return redirect('/dashboard/kota')->with('success', 'Kota telah dihapus');
+        } catch (\Exception $e) {
+            return redirect('/dashboard/kota')->with('error', 'Kota gagal dihapus');
         }
-        $kota->delete();
-        return redirect('/dashboard/kota')->with('success', 'Kota telah dihapus');
+
     }
     public function edit($name)
     {

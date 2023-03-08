@@ -17,7 +17,7 @@
 <br>
 <div class="main">
     <br>
-    <div class="container mt-3">
+    <div class="container">
         <img src="{{ asset('storage/images/tingkatan/' .$data->home_image) }}"
             class="image-landing" width="">
         <h1 class="text-center">Les Privat {{ $data->tingkatan }}

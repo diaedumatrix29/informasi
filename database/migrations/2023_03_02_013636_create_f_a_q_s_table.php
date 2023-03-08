@@ -16,7 +16,7 @@ class CreateFAQSTable extends Migration
         Schema::create('f_a_q', function (Blueprint $table) {
             $table->id();
             $table->string('pertanyaan')->unique();
-            $table->string('jawaban');
+            $table->text('jawaban');
             $table->timestamps();
         });
     }
