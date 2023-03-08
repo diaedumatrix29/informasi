@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/register', 'RegisterController@index')->name('register');
 Route::get('/login', 'LoginController@index')->name('login');
 
+Route::post('logout', 'LoginController@logout')->name('admin.logout')->middleware('auth');
+
 // Landing Page
 Route::get('/', 'LandingController@index')->name('landingPage');
 
@@ -180,4 +182,3 @@ Auth::routes();
 });
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
