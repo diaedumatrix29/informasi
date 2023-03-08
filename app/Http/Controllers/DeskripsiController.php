@@ -40,7 +40,7 @@ class DeskripsiController extends Controller
             $deskripsi = new Deskripsi();
             $deskripsi->isi_deskripsi = $request->isi_deskripsi;
             $deskripsi->save();
-            return redirect('dashboard/deskripsi')->with('status', 'Deskripsi berhasil ditambahkan');
+            return redirect('dashboard/deskripsi')->with('success', 'Deskripsi berhasil ditambahkan');
         } catch (\Exception $e) {
               return redirect('dashboard/deskripsi')->with('error', 'Deskripsi gagal ditambahkan');
         }

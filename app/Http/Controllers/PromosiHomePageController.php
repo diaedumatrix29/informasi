@@ -46,9 +46,9 @@ class PromosiHomePageController extends Controller
             $request->file->storeAs('public/images/icon_promosi_home_page', $imageName);
             $promosi_home_page->foto_icon = $imageName;
             $promosi_home_page->save();
-            return redirect('/dashboard/promosi-home-page')->with('success', 'Promosi belum berhasil diperbarui');
+            return redirect('/dashboard/promosi-home-page')->with('success', 'Promosi belum berhasil ditambahkan');
         } catch (\Exception $e) {
-              return redirect('/dashboard/promosi-home-page')->with('error', 'Promosi belum berhasil diperbarui');
+              return redirect('/dashboard/promosi-home-page')->with('error', 'Promosi belum berhasil ditambahkan');
           }
 
     }
@@ -119,9 +119,9 @@ class PromosiHomePageController extends Controller
         try {
             $promosi_home_page = PromosiHomePage::find($id);
             $promosi_home_page->delete();
-            return redirect('/dashboard/promosi-home-page')->with('success', 'Promosi berhasil diperbarui');
+            return redirect('/dashboard/promosi-home-page')->with('success', 'Promosi berhasil dihapus');
         }catch (\Exception $e) {
-            return redirect('/dashboard/promosi-home-page')->with('error', 'Promosi belum berhasil diperbarui');
+            return redirect('/dashboard/promosi-home-page')->with('error', 'Promosi belum berhasil dihapus');
         }
     }
 }

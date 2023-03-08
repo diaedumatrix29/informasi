@@ -63,7 +63,6 @@ class KotaController extends Controller
     {
         try {
             $data = $request->validate([
-                'file' =>'required',
                 'file.*' => 'mimes:jpeg,png,jpg,gif,svg|max:2048'
             ]);
             $kota = Kota::find($request->id);

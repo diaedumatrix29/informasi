@@ -2,7 +2,6 @@
     .mySlides {
         display: none;
     }
-
 </style>
 
 <div class="w3-content w3-display-container">

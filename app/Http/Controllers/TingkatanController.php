@@ -74,16 +74,19 @@ class TingkatanController extends Controller
     }
     function store(Request $request)
     {
-        $tingkatan = new Tingkatan;
-        $tingkatan->tingkatan = $request->tingkatan;
-        $tingkatan->deskripsi = $request->deskripsi;
-        $imageName = time() . '.' . $request->file->extension();
-        // $request->image->move(public_path('images'), $imageName);
-        $request->file->storeAs('public/images/tingkatan', $imageName);
-        $tingkatan->home_image = $imageName;
-        $tingkatan->save();
-        return redirect('/kelas/input-data-kelas')->with('success', 'Kelas telah ditambahkan');
-
+        try {
+            $tingkatan = new Tingkatan;
+            $tingkatan->tingkatan = $request->tingkatan;
+            $tingkatan->deskripsi = $request->deskripsi;
+            $imageName = time() . '.' . $request->file->extension();
+            // $request->image->move(public_path('images'), $imageName);
+            $request->file->storeAs('public/images/tingkatan', $imageName);
+            $tingkatan->home_image = $imageName;
+            $tingkatan->save();
+            return redirect('/kelas/input-data-kelas')->with('success', 'Kelas telah ditambahkan');
+        } catch (\Exception $e) {
+            return redirect('/kelas/input-data-kelas')->with('error', 'Kelas gagal ditambahkan');
+        }
     }
     function index()
     {

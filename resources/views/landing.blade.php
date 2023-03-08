@@ -113,12 +113,11 @@
             @foreach ($promosi_home_page as $promosi)
                 <div class="col-lg-4 col-12">
                     <img width="50" class="d-block m-auto mb-2" src="{{ asset('storage/images/icon_promosi_home_page/' .$promosi->foto_icon) }}" />
-                    <h5 class="col text-center mx-5">{{$promosi->judul_promosi}}</h5>
+                    <h5 class="col text-center mx-5"><strong>{{$promosi->judul_promosi}}</strong></h5>
                     <p class="text-center">{{$promosi->isi_promosi}}</p>
                 </div>
             @endforeach
         </div>
-
         <div class="w3-content mt-4 w3-display-container">
             @foreach($diskon as $disc)
                 <img class="mySlides" src="{{ asset('storage/images/diskon/' . $disc->foto_diskon) }}" style="width:100%"

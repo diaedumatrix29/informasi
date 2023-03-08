@@ -20,7 +20,7 @@
             </div>
             <div class="form-group">
                 <label for="">Jawaban</label>
-                <textarea name="jawaban" class="form-control" value="{{ $data->jawaban }}" required="" rows="7" cols="50" maxlength="1000"></textarea>
+                <textarea name="jawaban" class="form-control" value="{{ $data->jawaban }}" required="" rows="7" cols="50" maxlength="1000">{{ $data->jawaban }}</textarea>
             </div>
             <a href="{{ URL::to('/') }}/dashboard/kota" class="btn btn-danger mt-3"
                 style="float: left;">Kembali</a>

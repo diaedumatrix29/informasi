@@ -58,7 +58,7 @@ class MataPelajaranController extends Controller
         try {
             $mapel = MataPelajaran::find($id);
             $mapel->delete();
-            return redirect('/dashboard/mapel')->with('status', 'Mata Pelajaran telah dihapus');
+            return redirect('/dashboard/mapel')->with('success', 'Mata Pelajaran telah dihapus');
         } catch (\Exception $e) {
             return redirect('/dashboard/mapel')->with('error', 'Mata Pelajaran belum berhasil dihapus');
         }

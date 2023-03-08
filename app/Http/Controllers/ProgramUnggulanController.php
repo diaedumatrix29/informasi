@@ -32,7 +32,7 @@ class ProgramUnggulanController extends Controller
         try {
             $program_unggulan = ProgramUnggulan::find($id);
             $program_unggulan->delete();
-            return redirect('/dashboard/program-unggulan')->with('status', 'Program unggulan telah dihapus');
+            return redirect('/dashboard/program-unggulan')->with('success', 'Program unggulan telah dihapus');
         } catch (\Exception $e) {
             return redirect('/dashboard/program-unggulan')->with('error', 'Program unggulan belum berhasil dihapus');
         }

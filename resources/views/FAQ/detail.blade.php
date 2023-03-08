@@ -1,5 +1,4 @@
 <style>
-
     .accordion__question p {
         font-size: 20px;
     }
@@ -19,7 +18,6 @@
     .rotate {
         transform: rotate(180deg);
     }
-
 </style>
 <div class="container">
     <div class="main">
@@ -29,7 +27,7 @@
         <br>
         <div class="card_faq">
             <div class="layout">
-                @foreach($FAQ as $f_a_q)
+                @foreach ($FAQ as $f_a_q)
                     <div class="accordion">
                         <div class="accordion__question">
                             <div class="d-flex justify-content-between">
