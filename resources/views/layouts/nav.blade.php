@@ -2,13 +2,9 @@
     nav {
         z-index: 1000;
     }
-    .custom-toggler.navbar-toggler {
-        border-color: white;
-    }
-    /* Setting the stroke to green using rgb values (0, 128, 0) */
-
-    .custom-toggler .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#fff' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    .navbar-light .navbar-toggler-icon {
+        background-image: url(
+"data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
     }
 </style>
 
@@ -16,10 +12,10 @@
 <nav class="navbar navbar-expand-lg navbar-light color-official position-fixed top-0 start-0 end-0">
     <div class="container">
         <a class="navbar-brand text-white" href="/">Edumatrix Indonesia</a>
-        <button class="navbar-toggler custom-toggler text-white" type="button" data-bs-toggle="collapse"
+        <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon text-white"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
