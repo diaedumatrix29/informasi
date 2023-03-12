@@ -11,6 +11,10 @@
     <meta property="og:sitename" content="Matrix Education" />
     <meta property="og:title" content= "{{$data->title ?? 'Matrix Education - Dapatkan Guru Terbaik Dalam Hitungan Detik.'}}" />
     <meta property="og:description" content= "{{$data->meta_description ?? 'Guru les privat kelas SD, SMP, SMA, SBMPTN, dan Umum untuk semua mata pelajaran Matematika, IPA, IPS, Geografi, Kimia, Sosiologi, Ekonomi, Sejarah, Bahasa Iggris, Bahasa Indonesia di wilayah Jakarta, Bogor, Depok, Tangerang, dan Bekasi'}}" />
+    
+    @yield('link_script')
+
+
     {{-- Goggle Font --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,7 +68,6 @@
             line-height: 37px;
         }
     </style>
-    <script>{{ $data->script_js ?? '' }}</script>
     <title>{{$data->title ?? 'Matrix Education - Dapatkan Guru Terbaik Dalam Hitungan Detik.'}}</title>
 
 <body>

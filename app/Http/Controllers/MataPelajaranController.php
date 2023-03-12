@@ -16,6 +16,7 @@ use App\AsalSekolahSiswa;
 use App\TestimoniTeks;
 use App\FAQ;
 use App\Diskon;
+use App\GoogleAnalytics;
 use Illuminate\Support\Str;
 
 class MataPelajaranController extends Controller
@@ -35,8 +36,9 @@ class MataPelajaranController extends Controller
         $testimoni_teks = TestimoniTeks::all();
         $FAQ = FAQ::all();
         $diskon = Diskon::all();
+        $google_analytics = GoogleAnalytics::all();
         $data= MataPelajaran::where('slug', $slug)->first();
-        return view('mata_pelajaran.detail', compact('diskon', 'FAQ', 'testimoni_teks', 'asal_sekolah_siswa', 'keunggulan', 'button_wa', 'deskripsi', 'office', 'kota', 'data', 'kelas', 'mapel', 'program_unggulan', 'reservasi'));
+        return view('mata_pelajaran.detail', compact('google_analytics', 'diskon', 'FAQ', 'testimoni_teks', 'asal_sekolah_siswa', 'keunggulan', 'button_wa', 'deskripsi', 'office', 'kota', 'data', 'kelas', 'mapel', 'program_unggulan', 'reservasi'));
     }
     function create()
     {     

@@ -128,8 +128,9 @@
 
         <div class="container w3-content mt-4 w3-display-container">
             @foreach($diskon as $disc)
-                <img class="mySlides2" src="{{ asset('storage/images/diskon/' . $disc->foto_diskon) }}" style="width:100%"
-                    alt="image">
+            <a href="{{ URL::to('/') }}/{{ $disc->link }}">          <img class="mySlides2" src="{{ asset('storage/images/diskon/' . $disc->foto_diskon) }}" style="width:100%"
+                alt="image"></a>
+      
             @endforeach
         </div>
 

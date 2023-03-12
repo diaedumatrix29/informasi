@@ -38,7 +38,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $google_analytics = GoogleAnalytics::all();
+        $this->middleware('guest', compact('google_analytics'));
     }
 
     /**

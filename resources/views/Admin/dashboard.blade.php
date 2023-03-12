@@ -16,3 +16,6 @@
 <p><a class="btn btn-primary" href="{{ URL::to('/') }}/dashboard/program-unggulan">Program Unggulan</a></p>
 <p><a class="btn btn-primary" href="{{ URL::to('/') }}/dashboard/reservasi">Reservasi</a></p>
 <p><a class="btn btn-primary" href="{{ URL::to('/') }}/dashboard/FAQ">FAQ</a></p>
+
+<h3>SEO Tools</h3>
+<p><a class="btn btn-primary" href="{{ URL::to('/') }}/dashboard/google-SEO">Google SEO</a></p>

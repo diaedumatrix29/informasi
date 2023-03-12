@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\ProgramUnggulan;
+use App\GoogleAnalytics;
 use App\Reservasi;
 
 class AdminDashboardController extends Controller
 {
     public function index()
     {
-        $program_unggulan = ProgramUnggulan::all();
+        $google_analytics = GoogleAnalytics::all();
         $reservasi = Reservasi::all();
-        return view('admin.dashboard', compact('reservasi', 'program_unggulan'));
+        return view('admin.dashboard', compact('google_analytics', 'reservasi'));
     }
 }

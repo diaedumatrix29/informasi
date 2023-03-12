@@ -18,6 +18,7 @@ use App\Diskon;
 use App\PromosiHomePage;
 use App\Keunggulan;
 use App\ButtonWA;
+use App\GoogleAnalytics;
 
 class LandingController extends Controller
 {
@@ -38,6 +39,7 @@ class LandingController extends Controller
         $promosi_home_page = PromosiHomePage::all();
         $keunggulan = Keunggulan::all();
         $button_wa = ButtonWA::all();
-        return view('landing', compact('button_wa', 'keunggulan', 'promosi_home_page', 'diskon', 'asal_sekolah_siswa', 'deskripsi', 'kecamatan', 'office', 'testimoni_teks', 'reservasi', 'kota', 'kelas', 'mapel', 'program_unggulan', 'FAQ', ));
+        $google_analytics = GoogleAnalytics::all();
+        return view('landing', compact('google_analytics', 'button_wa', 'keunggulan', 'promosi_home_page', 'diskon', 'asal_sekolah_siswa', 'deskripsi', 'kecamatan', 'office', 'testimoni_teks', 'reservasi', 'kota', 'kelas', 'mapel', 'program_unggulan', 'FAQ', ));
     }
 }

@@ -16,8 +16,11 @@ class CreateKotasTable extends Migration
         Schema::create('kota', function (Blueprint $table) {
             $table->id();
             $table->string('nama_kota')->unique();
+            $table->string('slug')->unique();
             $table->string('foto_kota');
             $table->text('deskripsi');
+            $table->text('meta_description');
+            $table->text('title');
             $table->timestamps();
         });
     }

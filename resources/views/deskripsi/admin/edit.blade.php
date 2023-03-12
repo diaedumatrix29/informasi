@@ -14,9 +14,10 @@
                 {{ session('error') }}
             </div>
         @endif
-        <form name="add-post-form" id="add-post-form" method="put"
+        <form name="add-post-form" id="add-post-form" method="post"
             action="{{ url('/update-data-deskripsi-form') }}">
             @csrf
+            @method('PUT')
             <div class="form-group">
                 <input type="hidden" name="id" value="{{ $data->id }}">
                 <label for="exampleInputEmail1">Isi Deskripsi</label>

@@ -16,6 +16,7 @@ class CreateDeskripsisTable extends Migration
         Schema::create('deskripsi', function (Blueprint $table) {
             $table->id();
             $table->text('isi_deskripsi');
+            $table->text('title');
             $table->timestamps();
         });
     }

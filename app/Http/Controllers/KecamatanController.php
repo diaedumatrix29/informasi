@@ -16,6 +16,7 @@ use App\AsalSekolahSiswa;
 use App\TestimoniTeks;
 use App\FAQ;
 use App\Diskon;
+use App\GoogleAnalytics;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -105,8 +106,9 @@ class KecamatanController extends Controller
         $testimoni_teks = TestimoniTeks::all();
         $FAQ = FAQ::all();
         $diskon = Diskon::all();
+        $google_analytics = GoogleAnalytics::all();
         $foto = explode(' ', $data->foto_kecamatan);
-        return view('kecamatan.detail', compact('diskon', 'FAQ', 'testimoni_teks', 'asal_sekolah_siswa', 'keunggulan', 'button_wa', 'foto', 'data_kota', 'kecamatan','kota', 'office', 'data', 'kelas', 'mapel', 'program_unggulan', 'reservasi'));
+        return view('kecamatan.detail', compact('google_analytics', 'diskon', 'FAQ', 'testimoni_teks', 'asal_sekolah_siswa', 'keunggulan', 'button_wa', 'foto', 'data_kota', 'kecamatan','kota', 'office', 'data', 'kelas', 'mapel', 'program_unggulan', 'reservasi'));
     }
 
     /**

@@ -1,4 +1,9 @@
-@include('layouts.app')
+@extends('layouts.app')
+@section('link_script')
+    @foreach ($google_analytics as $item)
+    <script async src="{{$item->src ?? ''}}"></script>
+    @endforeach
+@endsection
 @include('layouts.nav')
 
 <style>

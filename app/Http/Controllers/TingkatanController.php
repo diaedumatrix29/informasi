@@ -16,6 +16,7 @@ use App\AsalSekolahSiswa;
 use App\TestimoniTeks;
 use App\FAQ;
 use App\Diskon;
+use App\GoogleAnalytics;
 use File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -37,8 +38,9 @@ class TingkatanController extends Controller
         $testimoni_teks = TestimoniTeks::all();
         $FAQ = FAQ::all();
         $diskon = Diskon::all();
+        $google_analytics = GoogleAnalytics::all();
         $data= Tingkatan::where('slug', $slug)->first();
-        return view('tingkatan.detail', compact('diskon', 'FAQ', 'testimoni_teks', 'asal_sekolah_siswa', 'keunggulan', 'button_wa', 'deskripsi', 'office', 'kota', 'data', 'kelas', 'mapel', 'program_unggulan', 'reservasi'));
+        return view('tingkatan.detail', compact('google_analytics', 'diskon', 'FAQ', 'testimoni_teks', 'asal_sekolah_siswa', 'keunggulan', 'button_wa', 'deskripsi', 'office', 'kota', 'data', 'kelas', 'mapel', 'program_unggulan', 'reservasi'));
     }
     function create()
     {
@@ -94,7 +96,6 @@ class TingkatanController extends Controller
             $tingkatan->tingkatan = $request->tingkatan;
             $tingkatan->title = $request->title;
             $tingkatan->meta_description = $request->meta_description;
-            $tingkatan->script_js = $request->script_js;
             $tingkatan->slug = Str::slug($request->tingkatan);
             $tingkatan->deskripsi = $request->deskripsi;
             $imageName = time() . '.' . $request->file->extension();

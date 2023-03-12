@@ -16,6 +16,7 @@ use App\AsalSekolahSiswa;
 use App\TestimoniTeks;
 use App\FAQ;
 use App\Diskon;
+use App\GoogleAnalytics;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -44,10 +45,11 @@ class KotaController extends Controller
         $testimoni_teks = TestimoniTeks::all();
         $FAQ = FAQ::all();
         $diskon = Diskon::all();
+        $google_analytics = GoogleAnalytics::all();
         $data= Kota::where('slug', $slug)->first();
         $foto = explode(' ', $data->foto_kota);
 
-        return view('kota.detail', compact('diskon', 'FAQ', 'testimoni_teks', 'asal_sekolah_siswa', 'keunggulan', 'button_wa', 'deskripsi', 'foto', 'kecamatan', 'office', 'kota', 'data', 'kelas', 'mapel', 'program_unggulan', 'reservasi'));
+        return view('kota.detail', compact('google_analytics', 'diskon', 'FAQ', 'testimoni_teks', 'asal_sekolah_siswa', 'keunggulan', 'button_wa', 'deskripsi', 'foto', 'kecamatan', 'office', 'kota', 'data', 'kelas', 'mapel', 'program_unggulan', 'reservasi'));
     }
     public function destroy($id)
     {

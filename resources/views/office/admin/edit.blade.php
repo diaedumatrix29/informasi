@@ -10,9 +10,10 @@
 <br>
 <div class="main">
     <div class="container">
-        <form name="update-post-form" id="update-post-form" method="put"
+        <form name="update-post-form" id="update-post-form" method="post"
             action="{{ url('update-data-office-form') }}">
             @csrf
+            @method('PUT')
             <div class="form-group">
                 <input type="hidden" name="id" value="{{ $data->id }}">
                 <label for="">Judul Office</label>

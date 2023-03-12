@@ -10,9 +10,10 @@
 <br>
 <div class="main">
     <div class="container">
-        <form name="update-post-form" id="update-post-form" method="put"
+        <form name="update-post-form" id="update-post-form" method="post"
             action="{{ url('update-data-reservasi-form') }}">
             @csrf
+            @method('PUT')
             <div class="form-group">
                 <label for="exampleInputEmail1">Nama Reservasi</label>
                 <input type="hidden" name="id" value="{{ $data->id }}">
