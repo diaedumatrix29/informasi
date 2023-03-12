@@ -23,25 +23,23 @@
     <a class="btn btn-primary mb-4" style="float: left;"
         href="{{ URL::to('/') }}/admin/dashboard">Dashboard Admin</a>
     <a class="btn btn-primary mb-4" style="float: right;"
-        href="{{ URL::to('/') }}/mapel/input-data-mapel">Tambah</a>
+        href="{{ URL::to('/') }}/button-wa/input-data-button-wa">Tambah</a>
     <table class="table table-striped border">
         <thead>
             <tr>
-                <th scope="col">Mata Pelajaran</th>
-                <th scope="col">Title</th>
+                <th scope="col">Nama CS</th>
+                <th scope="col">Nomor CS</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Hapus</th>
             </tr>
         </thead>
         <tbody>
 
-            @foreach($mapel as $m)
+            @foreach($button_wa as $cs)
                 <tr>
-                    <td>{{$m->script_js}}</td>
-                    <td>{{ $m->mata_pelajaran }}</td>
-                    <td>{{ $m->title }}</td>
-
-                    <td><a href="{{ URL::to('/') }}/mapel/edit/{{ $m->mata_pelajaran }}"><svg
+                    <td>{{$cs->nama_cs}}</td>
+                    <td>{{$cs->nomor_hp}}</td>
+                    <td><a href="{{ URL::to('/') }}/button-wa/edit/{{ $cs->nama_cs }}"><svg
                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="edit bi bi-pencil-square" viewBox="0 0 16 16">
                                 <path
@@ -49,7 +47,7 @@
                                 <path fill-rule="evenodd"
                                     d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                             </svg></a></td>
-                    <form name="delete-form" id="adelete-form" method="POST" action="/mapel/delete/{{ $m->id }}">
+                    <form name="delete-form" id="adelete-form" method="POST" action="/button-wa/delete/{{ $cs->id }}">
                         @csrf
                         @method('DELETE')
 

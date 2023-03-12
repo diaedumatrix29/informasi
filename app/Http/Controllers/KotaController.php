@@ -10,8 +10,15 @@ use App\Reservasi;
 use App\Office;
 use App\Kecamatan;
 use App\Deskripsi;
+use App\ButtonWA;
+use App\Keunggulan;
+use App\AsalSekolahSiswa;
+use App\TestimoniTeks;
+use App\FAQ;
+use App\Diskon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class KotaController extends Controller
 {
@@ -21,7 +28,7 @@ class KotaController extends Controller
         $reservasi = Reservasi::all();
         return view('kota.admin.input-data', compact('reservasi', 'program_unggulan'));
     }
-    public function show($name)
+    public function show($slug)
     {
         $kota = Kota::all();
         $kelas = Tingkatan::all();
@@ -31,10 +38,16 @@ class KotaController extends Controller
         $office = Office::all();
         $kecamatan = Kecamatan::all();
         $deskripsi = Deskripsi::all();
-        $data= Kota::where('nama_kota', $name)->first();
+        $button_wa = ButtonWA::all();
+        $keunggulan = Keunggulan::all();
+        $asal_sekolah_siswa = AsalSekolahSiswa::all();
+        $testimoni_teks = TestimoniTeks::all();
+        $FAQ = FAQ::all();
+        $diskon = Diskon::all();
+        $data= Kota::where('slug', $slug)->first();
         $foto = explode(' ', $data->foto_kota);
 
-        return view('kota.detail', compact('deskripsi', 'foto', 'kecamatan', 'office', 'kota', 'data', 'kelas', 'mapel', 'program_unggulan', 'reservasi'));
+        return view('kota.detail', compact('diskon', 'FAQ', 'testimoni_teks', 'asal_sekolah_siswa', 'keunggulan', 'button_wa', 'deskripsi', 'foto', 'kecamatan', 'office', 'kota', 'data', 'kelas', 'mapel', 'program_unggulan', 'reservasi'));
     }
     public function destroy($id)
     {
@@ -67,6 +80,9 @@ class KotaController extends Controller
             ]);
             $kota = Kota::find($request->id);
             $kota->nama_kota = $request->nama_kota;
+            $kota->title = $request->title;
+            $kota->meta_description = $request->meta_description;
+            $kota->script_js = $request->script_js;
             $kota->deskripsi = $request->deskripsi;
             $images = [];
     
@@ -103,7 +119,11 @@ class KotaController extends Controller
                 array_push($images, $image_path);
             }
             $kota = new Kota();
+            $kota->slug = Str::slug($request->nama_kota);
             $kota->nama_kota = $request->nama_kota;
+            $kota->title = $request->title;
+            $kota->meta_description = $request->meta_description;
+            $kota->script_js = $request->script_js;
             $kota->deskripsi = $request->deskripsi;
             $kota->foto_kota = implode(' ',$images);
             $kota->save();

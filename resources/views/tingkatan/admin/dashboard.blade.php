@@ -27,6 +27,7 @@
     <table class="table table-striped border">
         <thead>
             <tr>
+                <th scope="col">Title</th>
                 <th scope="col">Kelas</th>
                 <th scope="col">Foto</th>
                 <th scope="col">Edit</th>
@@ -36,6 +37,7 @@
         <tbody>
             @foreach($kelas as $k)
                 <tr>
+                    <td>{{ $k->title }}</td>
                     <td>{{ $k->tingkatan }}</td>
                     <td><img src="{{ asset('storage/images/tingkatan/' .$k->home_image) }}" class="" width="75"></td>
                     <td><a href="{{ URL::to('/') }}/kelas/edit/{{ $k->tingkatan }}"><svg

@@ -2,32 +2,25 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content= "{{$data->meta_description ?? 'Guru les privat kelas SD, SMP, SMA, SBMPTN, dan Umum untuk semua mata pelajaran Matematika, IPA, IPS, Geografi, Kimia, Sosiologi, Ekonomi, Sejarah, Bahasa Iggris, Bahasa Indonesia di wilayah Jakarta, Bogor, Depok, Tangerang, dan Bekasi'}}" />
+
+    <meta property="og:locale" content="ID" />
+    <meta property="og:type" content="website" />
+    <meta property="og:sitename" content="Matrix Education" />
+    <meta property="og:title" content= "{{$data->title ?? 'Matrix Education - Dapatkan Guru Terbaik Dalam Hitungan Detik.'}}" />
+    <meta property="og:description" content= "{{$data->meta_description ?? 'Guru les privat kelas SD, SMP, SMA, SBMPTN, dan Umum untuk semua mata pelajaran Matematika, IPA, IPS, Geografi, Kimia, Sosiologi, Ekonomi, Sejarah, Bahasa Iggris, Bahasa Indonesia di wilayah Jakarta, Bogor, Depok, Tangerang, dan Bekasi'}}" />
     {{-- Goggle Font --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <style>
-        .color-official {
-            background-color: #0c2569;
-        }
-        nav {
-            margin-bottom: -80px;
-        }
-        p, span, a, li {
-            font-family: roboto;
-        }
-        h1, h2, h3, h4, h5 {
-            font-family: montserrat;
-        }
-    </style>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-234009286-1"></script>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>Edumatrix Indonesia</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -54,14 +47,31 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
+    
+    <style>
+        .color-official {
+            background-color: #0c2569;
+        }
+        nav {
+            margin-bottom: -80px;
+        }
+        p, span, a, li {
+            font-family: roboto;
+            line-height: 28px;
+        }
+        h1, h2, h3, h4, h5 {
+            font-family: montserrat;
+            line-height: 37px;
+        }
+    </style>
+    <script>{{ $data->script_js ?? '' }}</script>
+    <title>{{$data->title ?? 'Matrix Education - Dapatkan Guru Terbaik Dalam Hitungan Detik.'}}</title>
 
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Edumatrix Indonesia
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

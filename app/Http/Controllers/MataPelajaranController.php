@@ -10,10 +10,17 @@ use App\ProgramUnggulan;
 use App\Reservasi;
 use App\Office;
 use App\Deskripsi;
+use App\ButtonWA;
+use App\Keunggulan;
+use App\AsalSekolahSiswa;
+use App\TestimoniTeks;
+use App\FAQ;
+use App\Diskon;
+use Illuminate\Support\Str;
 
 class MataPelajaranController extends Controller
 {
-    function show($name)
+    function show($slug)
     {
         $kota = Kota::all();
         $kelas = Tingkatan::all();
@@ -22,8 +29,14 @@ class MataPelajaranController extends Controller
         $reservasi = Reservasi::all();
         $deskripsi = Deskripsi::all();
         $office = Office::all();
-        $data= MataPelajaran::where('mata_pelajaran', $name)->first();
-        return view('mata_pelajaran.detail', compact('deskripsi', 'office', 'kota', 'data', 'kelas', 'mapel', 'program_unggulan', 'reservasi'));
+        $button_wa = ButtonWA::all();
+        $keunggulan = Keunggulan::all();
+        $asal_sekolah_siswa = AsalSekolahSiswa::all();
+        $testimoni_teks = TestimoniTeks::all();
+        $FAQ = FAQ::all();
+        $diskon = Diskon::all();
+        $data= MataPelajaran::where('slug', $slug)->first();
+        return view('mata_pelajaran.detail', compact('diskon', 'FAQ', 'testimoni_teks', 'asal_sekolah_siswa', 'keunggulan', 'button_wa', 'deskripsi', 'office', 'kota', 'data', 'kelas', 'mapel', 'program_unggulan', 'reservasi'));
     }
     function create()
     {     
@@ -45,6 +58,9 @@ class MataPelajaranController extends Controller
                 'mata_pelajaran' => 'required',
             ]);
             $mapel = MataPelajaran::find($request->id);
+            $mapel->title = $request->title;
+            $mapel->meta_description = $request->meta_description;
+            $mapel->script_js = $request->script_js;
             $mapel->mata_pelajaran = $request->mata_pelajaran;
             $mapel->deskripsi = $request->deskripsi;
             $mapel->save();
@@ -67,12 +83,16 @@ class MataPelajaranController extends Controller
     {
         try {
             $mata_pelajaran = new MataPelajaran;
+            $mata_pelajaran->slug = Str::slug($request->mata_pelajaran);
+            $mata_pelajaran->title = $request->title;
+            $mata_pelajaran->meta_description = $request->meta_description;
+            $mata_pelajaran->script_js = $request->script_js;
             $mata_pelajaran->mata_pelajaran = $request->mata_pelajaran;
             $mata_pelajaran->deskripsi = $request->deskripsi;
             $mata_pelajaran->save();
             return redirect('/mapel/input-data-mapel')->with('success', 'Mata Pelajaran telah ditambahkan');
         } catch(\Exception $e) {
-            return redirect('/mapel/input-data-mapel')->with('error', 'Mata Pelajaran telah ditambahkan');
+            return redirect('/mapel/input-data-mapel')->with('error', 'Mata Pelajaran gagal ditambahkan');
         }
     }
     function index()

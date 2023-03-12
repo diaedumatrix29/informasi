@@ -9,6 +9,7 @@
 </style>
 <br>
 <div class="main">
+    @include('button_wa.detail')
     <div class="container mt-4">
         @include('layouts.slider')
         <br>
@@ -20,9 +21,10 @@
             </div>
     </div>
 </div>
+
 <div class="container">
     <div class="col-12">
-        <h4 class="">Lihat kecamatan lain</h4>
+        <h4 class=""><b>Lihat kecamatan lain</b></h4>
         <div class="row mt-1">
             @foreach($data_kota->kecamatannya as $kec)
                 <div class="col-lg-3 col-md-4 col-6 mt-2">
@@ -31,7 +33,13 @@
                 </div>
             @endforeach
         </div>
+       
     </div>
     @extends('layouts.footer')
 </div>
-@extends('layouts.kelas_tingkatan_kota')
+@include('layouts.kelas_tingkatan_kota')
+@include('layouts.keunggulan')
+@include('asal_sekolah_siswa.detail')
+@include('testimoni_teks.detail')
+@include('faq.detail')
+@include('diskon.detail')

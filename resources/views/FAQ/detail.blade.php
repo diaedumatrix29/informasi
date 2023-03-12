@@ -23,7 +23,7 @@
     <div class="main">
         <br>
         <br>
-        <h4 class="text-center">FAQ</h4>
+        <h4 class="text-center"><b>FAQ</b></h4>
         <br>
         <div class="card_faq">
             <div class="layout">

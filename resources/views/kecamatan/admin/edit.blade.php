@@ -20,6 +20,18 @@
                 <input name="nama_kecamatan" class="form-control" value="{{ $data->nama_kecamatan }}" required=""></input>
             </div>
             <div class="form-group">
+                <label for="">Title</label>
+                <input name="title" class="form-control" value="{{ $data->title }}" required=""></input>
+            </div>
+            <div class="form-group">
+                <label for="">Meta Description</label>
+                <textarea name="meta_description" class="form-control" value="{{ $data->meta_description }}" required="">{{ $data->meta_description }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="">Script JS</label>
+                <textarea name="script_js" class="form-control"required="">{{ $data->script_js }}</textarea>
+            </div>
+            <div class="form-group">
                 <label for="exampleInputEmail1">Deskripsi</label>
                 <textarea name="deskripsi" class="form-control" required="">{{$data->deskripsi}}</textarea>
             </div>

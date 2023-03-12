@@ -22,6 +22,18 @@
                 <input name="tingkatan" class="form-control" required=""></input>
             </div>
             <div class="form-group">
+                <label for="">Title</label>
+                <input name="title" class="form-control" required=""></input>
+            </div>
+            <div class="form-group">
+                <label for="">Meta Description</label>
+                <textarea name="meta_description" class="form-control"required=""></textarea>
+            </div>
+            <div class="form-group">
+                <label for="">Script JS</label>
+                <textarea name="script_js" class="form-control"required=""></textarea>
+            </div>
+            <div class="form-group">
                 <label for="exampleInputEmail1">Upload Foto</label>
                 <input type="file" name="file" id="file" accept="image/*" class="form-control">
             </div>

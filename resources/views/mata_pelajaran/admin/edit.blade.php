@@ -10,13 +10,26 @@
 <br>
 <div class="main">
     <div class="container">
-        <form name="update-post-form" id="update-post-form" method="put"
+        <form name="update-post-form" id="update-post-form" method="post"
             action="{{ url('update-data-mapel-form') }}">
             @csrf
+            @method('PUT')
             <div class="form-group">
                 <label for="exampleInputEmail1">Mata Pelajaran</label>
                 <input type="hidden" name="id" value="{{ $data->id }}">
                 <input name="mata_pelajaran" class="form-control" value="{{ $data->mata_pelajaran }}" required=""></input>
+            </div>
+            <div class="form-group">
+                <label for="">Title</label>
+                <input name="title" class="form-control" value="{{ $data->title }}" required=""></input>
+            </div>
+            <div class="form-group">
+                <label for="">Meta Description</label>
+                <textarea name="meta_description" class="form-control" value="{{ $data->meta_description }}" required="">{{ $data->meta_description }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="">Script JS</label>
+                <textarea name="script_js" class="form-control"required="">{{ $data->script_js }}</textarea>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Deskripsi</label>

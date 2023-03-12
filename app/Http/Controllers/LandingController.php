@@ -16,6 +16,8 @@ use App\Deskripsi;
 use App\AsalSekolahSiswa;
 use App\Diskon;
 use App\PromosiHomePage;
+use App\Keunggulan;
+use App\ButtonWA;
 
 class LandingController extends Controller
 {
@@ -34,6 +36,8 @@ class LandingController extends Controller
         $asal_sekolah_siswa = AsalSekolahSiswa::all();
         $diskon = Diskon::all();
         $promosi_home_page = PromosiHomePage::all();
-        return view('landing', compact('promosi_home_page', 'diskon', 'asal_sekolah_siswa', 'deskripsi', 'kecamatan', 'office', 'testimoni_teks', 'reservasi', 'kota', 'kelas', 'mapel', 'program_unggulan', 'FAQ', ));
+        $keunggulan = Keunggulan::all();
+        $button_wa = ButtonWA::all();
+        return view('landing', compact('button_wa', 'keunggulan', 'promosi_home_page', 'diskon', 'asal_sekolah_siswa', 'deskripsi', 'kecamatan', 'office', 'testimoni_teks', 'reservasi', 'kota', 'kelas', 'mapel', 'program_unggulan', 'FAQ', ));
     }
 }

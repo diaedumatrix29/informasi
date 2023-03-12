@@ -17,7 +17,8 @@
 <br>
 <div class="main">
     <br>
-    <div class="container">
+    @include('button_wa.detail')
+    <div class="container mt-4">
         <img src="{{ asset('storage/images/tingkatan/' .$data->home_image) }}"
             class="image-landing" width="">
         <h1 class="text-center">Les Privat {{ $data->tingkatan }}
@@ -28,6 +29,11 @@
             </div>
 
             @include('layouts.kelas_tingkatan_kota')
+            @include('layouts.keunggulan')
+            @include('asal_sekolah_siswa.detail')
+            @include('testimoni_teks.detail')
+            @include('faq.detail')
+            @include('diskon.detail')
     </div>
 </div>
 @include('layouts.footer')

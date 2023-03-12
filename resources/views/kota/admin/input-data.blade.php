@@ -18,15 +18,27 @@
             action="{{ url('input-data-kota-form') }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="exampleInputEmail1">Nama Kota</label>
+                <label for="">Title</label>
+                <input name="title" class="form-control" required=""></input>
+            </div>
+            <div class="form-group">
+                <label for="">Meta Description</label>
+                <textarea name="meta_description" class="form-control" required=""></textarea>
+            </div>
+            <div class="form-group">
+                <label for="">Script JS</label>
+                <textarea name="script_js" class="form-control"required=""></textarea>
+            </div>
+            <div class="form-group">
+                <label for="">Nama Kota</label>
                 <input name="nama_kota" class="form-control" required=""></input>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Deskripsi</label>
+                <label for="">Deskripsi</label>
                 <textarea name="deskripsi" class="form-control" required=""></textarea>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Foto Kota</label>
+                <label for="">Foto Kota</label>
                 <input type="file" name="file[]" id="file" accept="image/*" class="form-control" multiple>
             </div>
             <a href="{{ URL::to('/') }}/dashboard/kota" class="btn btn-danger mt-3"

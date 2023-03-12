@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateFAQTable extends Migration
+class CreateKeunggulanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class UpdateFAQTable extends Migration
      */
     public function up()
     {
-        Schema::table('f_a_q', function (Blueprint $table) {
-            $table->text('jawab');
+        Schema::create('keunggulan', function (Blueprint $table) {
+            $table->id();
+            $table->string('icon_keunggulan')->nullable();
+            $table->string('judul_keunggulan');
+            $table->text('isi_keunggulan');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +29,6 @@ class UpdateFAQTable extends Migration
      */
     public function down()
     {
-        Schema::table('f_a_q', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('keunggulan');
     }
 }

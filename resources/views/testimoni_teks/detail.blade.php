@@ -4,8 +4,8 @@
     }
 </style>
 
-<div class="testimoni-teks">
-    <h4>Kata #Mereka Tentang Belajar di Edumatrix Indonesia.</h4>
+<div class="testimoni-teks container mt-4">
+    <h4><b>Kata #Mereka Tentang Belajar di Edumatrix Indonesia.</b></h4>
     @foreach($testimoni_teks as $testeks)
         <div class="content d-lg-flex border mt-3 p-3 rounded">
                 <img src="{{ asset('storage/images/testimoni_teks/'.$testeks->profile_image) }}"

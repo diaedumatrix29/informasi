@@ -23,25 +23,26 @@
     <a class="btn btn-primary mb-4" style="float: left;"
         href="{{ URL::to('/') }}/admin/dashboard">Dashboard Admin</a>
     <a class="btn btn-primary mb-4" style="float: right;"
-        href="{{ URL::to('/') }}/mapel/input-data-mapel">Tambah</a>
+        href="{{ URL::to('/') }}/keunggulan/input-data-keunggulan">Tambah</a>
     <table class="table table-striped border">
         <thead>
             <tr>
-                <th scope="col">Mata Pelajaran</th>
-                <th scope="col">Title</th>
+                <th scope="col">Judul Promosi</th>
+                <th scope="col">Isi Promosi</th>
+                <th scope="col">Icon</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Hapus</th>
             </tr>
         </thead>
         <tbody>
 
-            @foreach($mapel as $m)
+            @foreach($keunggulan as $unggul)
                 <tr>
-                    <td>{{$m->script_js}}</td>
-                    <td>{{ $m->mata_pelajaran }}</td>
-                    <td>{{ $m->title }}</td>
+                    <td>{{ $unggul->judul_keunggulan }}</td>
+                    <td>{{ $unggul->isi_keunggulan }}</td>
+                    <td><img src="{{ asset('storage/images/icon_keunggulan/' .$unggul->icon_keunggulan) }}" class="" width="75"></td>
 
-                    <td><a href="{{ URL::to('/') }}/mapel/edit/{{ $m->mata_pelajaran }}"><svg
+                    <td><a href="{{ URL::to('/') }}/keunggulan/edit/{{ $unggul->judul_keunggulan }}"><svg
                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="edit bi bi-pencil-square" viewBox="0 0 16 16">
                                 <path
@@ -49,7 +50,7 @@
                                 <path fill-rule="evenodd"
                                     d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                             </svg></a></td>
-                    <form name="delete-form" id="adelete-form" method="POST" action="/mapel/delete/{{ $m->id }}">
+                    <form name="delete-form" id="adelete-form" method="POST" action="/keunggulan/delete/{{ $unggul->id }}">
                         @csrf
                         @method('DELETE')
 

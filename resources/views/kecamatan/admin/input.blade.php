@@ -28,6 +28,18 @@
                 <input name="nama_kecamatan" class="form-control" required=""></input>
             </div>
             <div class="form-group">
+                <label for="">Title</label>
+                <input name="title" class="form-control" required=""></input>
+            </div>
+            <div class="form-group">
+                <label for="">Meta Description</label>
+                <textarea name="meta_description" class="form-control" required=""></textarea>
+            </div>
+            <div class="form-group">
+                <label for="">Script JS</label>
+                <textarea name="script_js" class="form-control"required=""></textarea>
+            </div>
+            <div class="form-group">
                 <label for="exampleInputEmail1">Deskripsi</label>
                 <textarea name="deskripsi" class="form-control" required=""></textarea>
             </div>

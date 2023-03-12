@@ -24,6 +24,18 @@
                 <input name="tingkatan" class="form-control" required="" value="{{$data->tingkatan}}"></input>
             </div>
             <div class="form-group">
+                <label for="">Title</label>
+                <input name="title" class="form-control" value="{{$data->title}}" required=""></input>
+            </div>
+            <div class="form-group">
+                <label for="">Meta Description</label>
+                <textarea name="meta_description" class="form-control" value="{{ $data->meta_description }}" required="">{{ $data->meta_description }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="">Script JS</label>
+                <textarea rows="8" name="script_js" class="form-control"required="">{{ $data->script_js }}</textarea>
+            </div>
+            <div class="form-group">
                 <label for="exampleInputEmail1">Upload Foto</label>
                 <input type="file" name="file" id="file" accept="image/*" class="form-control">
             </div>

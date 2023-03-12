@@ -27,8 +27,8 @@
     <table class="table table-striped border">
         <thead>
             <tr>
+                <th scope="col">Title</th>
                 <th scope="col">Nama Kota</th>
-                <th scope="col">Deskripsi</th>
                 <th scope="col">Edit Kota</th>
                 <th scope="col">Hapus</th>
             </tr>
@@ -36,8 +36,8 @@
         <tbody>
             @foreach($kota as $k)
                 <tr>
+                    <td>{{ $k->title }}</td>
                     <td>{{ $k->nama_kota }}</td>
-                    <td>{!! $k->deskripsi !!}</td>
                     
                     <td><a href="{{ URL::to('/') }}/kota/edit/{{ $k->nama_kota }}"><svg
                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

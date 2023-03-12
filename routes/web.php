@@ -36,7 +36,7 @@ Route::post('/input-data-kota-form', 'KotaController@store')->name('kota.form');
 Route::put('/update-data-kota-form', 'KotaController@update')->name('kota.update');
 
 // Kota User
-Route::get('/kota/{name}', 'KotaController@show')->name('kota.detail');
+Route::get('/kota/{slug}', 'KotaController@show')->name('kota.detail');
 
 // Mata Pelajaran
 Route::get('/dashboard/mapel', 'MataPelajaranController@index')->name('mapel.dashboard');
@@ -44,12 +44,12 @@ Route::delete('/mapel/delete/{id}', 'MataPelajaranController@destroy')->name('ma
 Route::get('/mapel/edit/{name}', 'MataPelajaranController@edit')->name('mapel.edit');
 Route::get('/mapel/input-data-mapel', 'MataPelajaranController@create')->name('mapel.input');
 Route::post('/input-data-mapel-form', 'MataPelajaranController@store')->name('mapel.form');
-Route::get('/update-data-mapel-form', 'MataPelajaranController@update')->name('tingkatan.update');
+Route::put('/update-data-mapel-form', 'MataPelajaranController@update')->name('tingkatan.update');
 
 Route::put('/update-data-promosi-home-page-form', 'PromosiHomePageController@update')->name('promosi-home-page.update');
 
 // FAQ update
-Route::get('/update-data-faq-form', 'FAQController@update')->name('faq.update');
+Route::put('/update-data-faq-form', 'FAQController@update')->name('faq.update');
 
 // Testimoni teks update
 Route::put('/update-data-testimoni-teks-form', 'TestimoniTeksController@update')->name('testimoni-teks.update');
@@ -71,7 +71,7 @@ Route::put('/update-data-kecamatan-form', 'KecamatanController@update')->name('k
 Route::put('/update-data-asal-sekolah-siswa-form', 'AsalSekolahSiswaController@update')->name('asal-sekolah-siswa.update');
 
 // Mata Pelajaran User
-Route::get('/mata-pelajaran/{name}', 'MataPelajaranController@show')->name('mapel.detail');
+Route::get('/mata-pelajaran/{slug}', 'MataPelajaranController@show')->name('mapel.detail');
 
 // Tingkatan Admin
 
@@ -84,7 +84,7 @@ Route::get('/mata-pelajaran/{name}', 'MataPelajaranController@show')->name('mape
     Route::put('/update-data-kelas-form', 'TingkatanController@update')->name('tingkatan.update');
 
 // Tingkatan User
-Route::get('/kelas/{name}', 'TingkatanController@show')->name('tingkatan.detail');
+Route::get('/kelas/{slug}', 'TingkatanController@show')->name('tingkatan.detail');
 
 // Program Unggulan
 Route::get('dashboard/program-unggulan', 'ProgramUnggulanController@index')->name('program.unggulan.dashboard');
@@ -96,7 +96,7 @@ Route::post('/input-data-program-unggulan-form', 'ProgramUnggulanController@stor
 Route::get('/update-data-program-unggulan-form', 'ProgramUnggulanController@update')->name('program.unggulan.update');
 
 // Program Unggulan
-Route::get('/{name}', 'ProgramUnggulanController@show')->name('program.unggulan.detail');
+Route::get('/{slug}', 'ProgramUnggulanController@show')->name('program.unggulan.detail');
 
 // Reservasi Admin
 Route::get('dashboard/reservasi', 'ReservasiController@index')->name('reservasi.dashboard');
@@ -137,7 +137,7 @@ Route::get('kecamatan/input-data-kecamatan', 'KecamatanController@create')->name
 Route::delete('kecamatan/delete/{id}', 'KecamatanController@destroy')->name('kecamatan.destroy');
 
 // Kecamatan user
-Route::get('/kota/{nama_kota}/{name}', 'KecamatanController@show')->name('kecamatan.detail');
+Route::get('/kota/{nama_kota}/{slug}', 'KecamatanController@show')->name('kecamatan.detail');
 
 // Promosi landing page
 Route::get('dashboard/promosi-home-page/', 'PromosiHomePageController@index')->name('kecamatan.dashboard');
@@ -174,7 +174,22 @@ Route::get('promosi-home-page/edit/{name}', 'PromosiHomePageController@edit')->n
 
 Route::get('/register', 'RegisterController@index')->name('register');
 
+// Keunggulan
+Route::get('/dashboard/keunggulan', 'KeunggulanController@index')->name('keunggulan.dashboard');
+Route::get('/keunggulan/input-data-keunggulan', 'KeunggulanController@create')->name('keunggulan.input');
+Route::post('/input-data-keunggulan-form', 'KeunggulanController@store')->name('keunggulan.form');
+Route::delete('keunggulan/delete/{id}', 'KeunggulanController@destroy')->name('keunggulan.destroy');
+Route::get('keunggulan/edit/{name}', 'KeunggulanController@edit')->name('keunggulan.edit');
+Route::put('/update-data-keunggulan-form', 'KeunggulanController@update')->name('keunggulan.update');
+
+// Button wa
+Route::get('/dashboard/button-wa', 'ButtonWAController@index')->name('button-wa.dashboard');
+Route::get('/button-wa/input-data-button-wa', 'ButtonWAController@create')->name('button-wa.input');
+Route::post('/input-data-button-wa-form', 'ButtonWAController@store')->name('button-wa.form');
+Route::delete('button-wa/delete/{id}', 'ButtonWAController@destroy')->name('button-wa.destroy');
+Route::get('button-wa/edit/{name}', 'ButtonWAController@edit')->name('button-wa.edit');
+Route::put('/update-data-button-wa-form', 'ButtonWAController@update')->name('button-wa/edit.update');
+
 Auth::routes();
 });
 Auth::routes();
-

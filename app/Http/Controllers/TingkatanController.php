@@ -10,13 +10,19 @@ use App\ProgramUnggulan;
 use App\Reservasi;
 use App\Office;
 use App\Deskripsi;
+use App\ButtonWA;
+use App\Keunggulan;
+use App\AsalSekolahSiswa;
+use App\TestimoniTeks;
+use App\FAQ;
+use App\Diskon;
 use File;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Str;
 
 class TingkatanController extends Controller
 {
-    function show($name)
+    function show($slug)
     {
         $kota = Kota::all();
         $kelas = Tingkatan::all();
@@ -25,8 +31,14 @@ class TingkatanController extends Controller
         $reservasi = Reservasi::all();
         $office = Office::all();
         $deskripsi = Deskripsi::all();
-        $data= Tingkatan::where('tingkatan', $name)->first();
-        return view('tingkatan.detail', compact('deskripsi', 'office', 'kota', 'data', 'kelas', 'mapel', 'program_unggulan', 'reservasi'));
+        $button_wa = ButtonWA::all();
+        $keunggulan = Keunggulan::all();
+        $asal_sekolah_siswa = AsalSekolahSiswa::all();
+        $testimoni_teks = TestimoniTeks::all();
+        $FAQ = FAQ::all();
+        $diskon = Diskon::all();
+        $data= Tingkatan::where('slug', $slug)->first();
+        return view('tingkatan.detail', compact('diskon', 'FAQ', 'testimoni_teks', 'asal_sekolah_siswa', 'keunggulan', 'button_wa', 'deskripsi', 'office', 'kota', 'data', 'kelas', 'mapel', 'program_unggulan', 'reservasi'));
     }
     function create()
     {
@@ -57,6 +69,9 @@ class TingkatanController extends Controller
         try {
             $kelas = Tingkatan::find($request->id);
             $kelas->tingkatan = $request->tingkatan;
+            $kelas->title = $request->title;
+            $kelas->meta_description = $request->meta_description;
+            $kelas->script_js = $request->script_js;
             $kelas->deskripsi = $request->deskripsi;
             if ($request->hasFile('file')) {
                 Storage::delete('public/images/tingkatan/' . $kelas->home_image);
@@ -77,6 +92,10 @@ class TingkatanController extends Controller
         try {
             $tingkatan = new Tingkatan;
             $tingkatan->tingkatan = $request->tingkatan;
+            $tingkatan->title = $request->title;
+            $tingkatan->meta_description = $request->meta_description;
+            $tingkatan->script_js = $request->script_js;
+            $tingkatan->slug = Str::slug($request->tingkatan);
             $tingkatan->deskripsi = $request->deskripsi;
             $imageName = time() . '.' . $request->file->extension();
             // $request->image->move(public_path('images'), $imageName);

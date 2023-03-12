@@ -11,7 +11,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light color-official position-fixed top-0 start-0 end-0">
     <div class="container">
-        <a class="navbar-brand text-white" href="/">Edumatrix Indonesia</a>
+        <a class="navbar-brand text-white" href="/">Matrix Education</a>
         <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">

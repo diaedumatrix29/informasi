@@ -10,8 +10,14 @@ use App\Reservasi;
 use App\MataPelajaran;
 use App\Office;
 use App\ProgramUnggulan;
+use App\ButtonWA;
+use App\Keunggulan;
+use App\AsalSekolahSiswa;
+use App\TestimoniTeks;
+use App\FAQ;
+use App\Diskon;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Str;
 
 class KecamatanController extends Controller
 {
@@ -22,7 +28,7 @@ class KecamatanController extends Controller
      */
     public function index()
     {
-        $kecamatan = Kecamatan::all();
+        $kecamatan = Kecamatan::orderBy('nama_kecamatan')->get();
         $kota = Kota::all();
         return view('kecamatan.admin.dashboard', compact('kota', 'kecamatan'));
     }
@@ -59,6 +65,10 @@ class KecamatanController extends Controller
                 array_push($images, $image_path);
             }
             $kecamatan = new Kecamatan;
+            $kecamatan->slug = Str::slug($request->nama_kecamatan);
+            $kecamatan->title = $request->title;
+            $kecamatan->meta_description = $request->meta_description;
+            $kecamatan->script_js = $request->script_js;
             $kecamatan->nama_kecamatan = $request->nama_kecamatan;
             $kecamatan->deskripsi = $request->deskripsi;
             $kecamatan->kota_id = $request->kota_id;
@@ -78,10 +88,10 @@ class KecamatanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($nama_kota, $name)
+    public function show($nama_kota, $slug)
     {
-        $data = Kecamatan::where('nama_kecamatan', $name)->first();
-        $data_kota = Kota::where('nama_kota', $nama_kota)->first();
+        $data = Kecamatan::where('slug', $slug)->first();
+        $data_kota = Kota::where('slug', $nama_kota)->first();
         $kota = Kota::all();
         $kelas = Tingkatan::all();
         $mapel = MataPelajaran::all();
@@ -89,8 +99,14 @@ class KecamatanController extends Controller
         $reservasi = Reservasi::all();
         $office = Office::all();
         $kecamatan= Kecamatan::all();
+        $button_wa = ButtonWA::all();
+        $keunggulan = Keunggulan::all();
+        $asal_sekolah_siswa = AsalSekolahSiswa::all();
+        $testimoni_teks = TestimoniTeks::all();
+        $FAQ = FAQ::all();
+        $diskon = Diskon::all();
         $foto = explode(' ', $data->foto_kecamatan);
-        return view('kecamatan.detail', compact('foto', 'data_kota', 'kecamatan','kota', 'office', 'data', 'kelas', 'mapel', 'program_unggulan', 'reservasi'));
+        return view('kecamatan.detail', compact('diskon', 'FAQ', 'testimoni_teks', 'asal_sekolah_siswa', 'keunggulan', 'button_wa', 'foto', 'data_kota', 'kecamatan','kota', 'office', 'data', 'kelas', 'mapel', 'program_unggulan', 'reservasi'));
     }
 
     /**
@@ -119,6 +135,9 @@ class KecamatanController extends Controller
                 'file.*' => 'mimes:jpeg,png,jpg,gif,svg|max:2048'
             ]);
             $kecamatan = Kecamatan::find($request->id);
+            $kecamatan->title = $request->title;
+            $kecamatan->meta_description = $request->meta_description;
+            $kecamatan->script_js = $request->script_js;
             $kecamatan->nama_kecamatan = $request->nama_kecamatan;
             $kecamatan->deskripsi = $request->deskripsi;
             $images = [];

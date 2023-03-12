@@ -23,12 +23,6 @@
         margin-bottom: 30px;
     }
     @media(min-width: 992px) {
-        .image-home-page {
-        position: absolute;
-        right: 0;
-        bottom: 14%;
-        }
-
         .p-judul {
             font-size: 25px;
         }
@@ -45,10 +39,6 @@
             margin-top: -35px;
             z-index: 99;
         }
-
-        .landing-page-awal {
-            margin-bottom: 150px;
-        }
     }
     .mySlides {
         display: none;
@@ -61,6 +51,7 @@
 <br>
 <div class="main">
     <div class="color-official py-5 position-relative" style="margin-top: -20px;">
+        @include('button_wa.detail')
         <div class="landing-page-awal container">
             <div class="d-lg-flex d-block pb-5">
                 <div class="judul-home-page">
@@ -101,8 +92,8 @@
                     </li>
                 </div>
                 <div class="div-image-home-page">
-                    <img class="image-home-page rounded-start img-fluid" width="350" height="330"
-                        src="{{ asset('image/image-landing-page.jpg') }}"
+                    <img class="image-home-page rounded-start img-fluid" width="400" height="360"
+                        src="{{ asset('image/image-landing-page.png') }}"
                         alt="image-landing-page" />
                 </div>
             </div>
@@ -129,12 +120,13 @@
         @include('deskripsi.detail')
         <br>
         @include('layouts.kelas_tingkatan_kota')
-        <h4 class="mt-3">Asal Sekolah Siswa</h4>
+        @include('layouts.keunggulan')
         @include('asal_sekolah_siswa.detail')
         @include('testimoni_teks.detail')
+
         @include('faq.detail')
 
-        <div class="w3-content mt-4 w3-display-container">
+        <div class="container w3-content mt-4 w3-display-container">
             @foreach($diskon as $disc)
                 <img class="mySlides2" src="{{ asset('storage/images/diskon/' . $disc->foto_diskon) }}" style="width:100%"
                     alt="image">

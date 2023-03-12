@@ -9,14 +9,19 @@
 
 <br>
 <div class="main">
-    <div class="container mt-2">
+    @include('button_wa.detail')
+    <div class="container mt-5">
         <h1 class="text-center">Les Privat {{$data->mata_pelajaran}} untuk
         <br>SD, SMP, SMA, UTBK, SNBT, SIMAK UI & UMPTN</h1>
         <div class="container">
           {!! $data->deskripsi !!}
         </div>
         @include('layouts.kelas_tingkatan_kota')
-
+        @include('layouts.keunggulan')
+        @include('asal_sekolah_siswa.detail')
+        @include('testimoni_teks.detail')
+        @include('faq.detail')
+        @include('diskon.detail')
     </div>
 
 
